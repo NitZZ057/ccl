@@ -21,9 +21,11 @@ var gateway = new braintree.BraintreeGateway({
 
 export const createProductController = async (req, res) => {
   try {
+    console.log("here1");
     const { name, description, price, category, quantity, shipping } =
       req.fields;
     const { photo } = req.files;
+    console.log("here2");
 
     await cloudinary.uploader.upload(photo.path, {
       folder: "product",
